@@ -1,23 +1,29 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import ProjectCard from '../../components/ProjectCard.astro'
+import DynamicProjectCard from '../../components/DynamicProjectCard.astro'
 import { getCollection } from 'astro:content'
 import Hero from '../../components/Hero.astro'
 const projectsEntries = await getCollection('projects')
+
+const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}project-lists?populate[images][fields]&populate[tags][fields]&populate[tags][slug]`)
+const responseData = await response.json();
+const projectData = responseData.data;
+
 ---
 
 <Layout title="eoss - Referenzen">
     <Hero title="Referenzprojekte" type="small" />
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-48">
         {
-            projectsEntries.map((entry: any) => (
-                <ProjectCard
-                    title={entry.data.title}
-                    image={entry.data.image}
-                    tags={entry.data.tags}
-                    slug={entry.slug}
-                />
-            ))
+        projectData.map((entry: any) => (
+            <DynamicProjectCard
+                title={entry.attributes.title}
+                image={entry.attributes.images.data.attributes.formats.medium.url}
+                tags={entry.attributes.tags.data}
+                slug={entry.attributes.slug}
+            />
+        ))
         }
     </section>
 </Layout>
