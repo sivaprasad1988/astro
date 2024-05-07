@@ -1,5 +1,11 @@
 import React from "react";
-import { NAVITEMS } from "../Header.astro";
+export const NAVITEMS = [
+  { name: "Leistungen", link: "/leistungen" },
+  { name: "Arbeiten", link: "/projects" },
+  { name: "Wir", link: "/spezialisten" },
+  { name: "Blog", link: "/blog" },
+  { name: "Kontakt", link: "/kontakt" },
+];
 import Button from "../Button.astro";
 
 const MobileNav = () => {
