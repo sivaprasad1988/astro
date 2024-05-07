@@ -10,16 +10,21 @@ const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}project-lists?
 const responseData = await response.json();
 const projectData = responseData.data;
 
+const headingResponse = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-banners/3`)
+const headingResponseData = await headingResponse.json() 
+const heading = headingResponseData.data?.attributes?.heading
+
+
 ---
 
 <Layout title="eoss - Referenzen">
-    <Hero title="Referenzprojekte" type="small" />
+    <Hero title={heading} type="small" />
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-48">
         {
         projectData.map((entry: any) => (
             <DynamicProjectCard
                 title={entry.attributes.title}
-                image={entry.attributes.images.data.attributes.formats.medium.url}
+                image={entry.attributes.images.data?.attributes?.formats.medium.url}
                 tags={entry.attributes.tags.data}
                 slug={entry.attributes.slug}
             />

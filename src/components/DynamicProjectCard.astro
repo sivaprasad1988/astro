@@ -14,12 +14,15 @@ const { title, image, tags, slug } = Astro.props
 
 <article>
     <div class="flex justify-center mb-8">
-        <Image
+        {
+            image != null && <Image
             class="max-h-72 object-contain"
             src={`http://localhost:1337${image}`}
             alt={title}
             inferSize={true}
         />
+        }
+        
     </div>
     <div>
         <h2>{title}</h2>
