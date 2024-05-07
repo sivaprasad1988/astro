@@ -6,20 +6,28 @@ import Section from '../components/Section.astro'
 import CursorText from '../components/react/CursorText.tsx'
 import BlogTeaser from '../components/BlogTeaser.astro'
 import ProjectsTeaser from '../components/ProjectsTeaser.astro'
+
+console.log(import.meta.env)
+const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-banners`)
+const responseData = await response.json()
+const description =
+    responseData.data[0]?.attributes?.bodyText[0]?.children[0]?.text
+const heading = responseData.data[0]?.attributes?.heading
+const contactUrl = responseData.data[0]?.attributes?.contact_url
+const contactText = responseData.data[0]?.attributes?.contact_text
+console.log(responseData.data[0]?.attributes)
 ---
 
 <Layout title="eoss - Web, E-Commerce, UX und SEO" description="Wir vereinen moderne Webseiten UX und SEO und begeistern die Nutzer.">
     <main>
         <Hero
-            title="Digitales für Mensch und Maschine"
+            title={heading}
             ,
             type="big"
-            buttonText="Kontakt"
-            buttonLink="/kontakt"
+            buttonText={contactUrl}
+            buttonLink={contactText}
         >
-            Wir entwerfen moderne Webseiten und Webshops, die Nutzer begeistern.
-            Der Einsatz von modernen Technologien und die konstante
-            Weiterentwicklung unserer Lösungen sind Teil unserer Kultur.
+        {description}
         </Hero>
         <Section type="medium" align="center">
             <p class="text-sm md:text-md">
