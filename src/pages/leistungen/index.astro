@@ -6,13 +6,22 @@ import seo_image from '../../assets/seo_bild.svg'
 import ux_image from '../../assets/web_illustration_ux.svg'
 import web_image from '../../assets/web_bild.svg'
 import ecommerce_image from '../../assets/ecommerce_bild.svg'
+
+console.log(import.meta.env)
+const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-banners/2`)
+const responseData = await response.json()
+const description =
+    responseData.data?.attributes?.bodyText[0]?.children[0]?.text
+
+const heading = responseData.data?.attributes?.heading
+const contactUrl = responseData.data?.attributes?.contact_url
+const contactText = responseData.data?.attributes?.contact_text
+
 ---
 
 <Layout title="eoss - Leistungen" description="Webdesign, UX und SEO sind unsere Passion. Wir layouten, entwickeln und erstellen Inhalte, ganz nach Ihren Bedürfnissen.">
-    <Hero title="Leistungen" type="small">
-        Wir bieten Ihnen ein breites Spektrum an Leistungen, die wir individuell
-        auf Ihre Bedürfnisse anpassen.
-    </Hero>
+    <Hero title={heading} type="small">{description}</Hero> 
+    
     <section class="mt-32">
         <SingleLeistung
             title="Webdesign"
