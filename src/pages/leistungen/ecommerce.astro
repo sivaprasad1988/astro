@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Hero from '../../components/Hero.astro'
+import Section from '../../components/Section.astro'
+import BlogTeaser from '../../components/BlogTeaser.astro'
+import ProjectsTeaser from '../../components/ProjectsTeaser.astro'
+---
+
+<Layout title="eoss - E-Commerce" description="Digital erfolgreich verkaufen - Wir von eoss helfen Ihnen dabei.">
+    <Hero title="E-Commerce" type="small">
+        <h2>Digital erfolgreich verkaufen.</h2>
+        <p>
+            Im digitalen Handelsraum ist der erste Eindruck entscheidend über
+            Conversion oder Absprung. Unser E-Commerce Ansatz fokussiert auf ein
+            aussergewöhnliches Nutzererlebnis, professionellem SEO und modernen
+            Technologien.
+        </p>
+    </Hero>
+    <Section type="medium" align="center">
+        <p class="text-sm md:text-md">
+            Ein erfolgreicher Webshop ist durch die Verbesserung der <a
+                href="#auffindbarkeit">Auffindbarkeit</a
+            > sichtbar, durch <a href="#conversion">Conversion Optimierung</a> rentabel
+            und durch <a href="#testing">Testing und Analyse</a> laufend optimiert.
+            Das ist der Schlüssel, um optimale Ergebnisse zu erzielen. Unsere Leistungen
+            sind darauf ausgelegt, diese drei Bereiche optimal aufeinander abzustimmen.
+        </p>
+    </Section>
+    <Section type="small" align="start">
+        <h3 id="auffindbarkeit">Auffindbarkeit</h3>
+        <p>
+            Der potenzielle Kunde muss den Shop finden. Dank <a
+                href="/leistungen/seo">SEO</a
+            > und gezieltem PPC-Marketing generieren wir Impressionen und Klicks
+            – die Grundlage für jeden Verkauf
+        </p>
+        <h3 class="mt-16" id="conversion">Conversion Optimierung</h3>
+        <p>
+            Technische Plattform, User Flow, Content und Design liefern alle
+            einen wichtigen Beitrag zur Steigerung und Optimierung der
+            Conversion Rates und so zum Erfolg eines Web-Shops.
+        </p>
+        <h3 class="mt-16" id="testing">Testing und Analyse</h3>
+        <p>
+            Die implementierten Massnahmen müssen laufend getestet, überwacht,
+            optimiert und analysiert werden. A/B Testing, Daten des
+            Nutzerverhaltens und die Analyse der erfolgten Conversions bilden
+            die Grundlage, um Schritt für Schritt zur optimierten
+            Verkaufsmaschine zu gelangen.
+        </p>
+    </Section>
+    <ProjectsTeaser tag="ecommerce" count={2} />
+    <BlogTeaser tag="ecommerce" count={2} />
+</Layout>

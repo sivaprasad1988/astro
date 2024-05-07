@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import Button from '../components/Button.astro'
+import BlogCard from '../components/BlogCard.astro'
+import { getCollection } from 'astro:content'
+import ProjectCard from './ProjectCard.astro'
+interface Props {
+    tag: string
+    count: number
+}
+const { tag, count = 2 } = Astro.props
+
+const projectsEntries = await getCollection('projects'),
+    filteredEntries =
+        tag === 'alle'
+            ? projectsEntries
+            : projectsEntries.filter((entry: any) =>
+                  entry.data.tags?.includes(tag)
+              )
+
+const projects = filteredEntries.slice(0, count)
+---
+
+<section class="pb-32">
+    <h2 class="mb-8 px-4">Arbeiten, auf die wir stolz sind.</h2>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 pb-8">
+        {
+            projects.map((entry: any) => (
+                <ProjectCard
+                    title={entry.data.title}
+                    tags={entry.data.tags}
+                    slug={entry.slug}
+                    image={entry.data.image}
+                />
+            ))
+        }
+    </section>
+    <div class="flex justify-end px-4">
+        <Button text="alle Projekte" link="/projects" />
+    </div>
+</section>

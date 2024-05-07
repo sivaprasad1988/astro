@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/Section.astro'
+import Hero from '../components/Hero.astro'
+---
+
+<Layout title="eoss - Impressum" description="Diese Webseite wird betrieben von eoss Informatik AG, Uznach">
+    <Hero type="small" title="Impressum" />
+    <Section type="medium" align="start">
+        <h2>Betreiber der Webseite</h2>
+        <p>eoss INFORMATIK AG</p>
+        <p>Burgerrietstrasse 13</p>
+        <p>8730 Uznach</p>
+        <a href="mailto:hello@eoss.ch">hello@eoss.ch</a> | <a
+            href="tel:+41555052200">+41 (0)55 505 22 00</a
+        >
+        <h2 class="pt-8">Vertreten durch den Geschäftsführer</h2>
+        <p>Simon Herensperger</p>
+        <h3>Handelsregister</h3>
+        <ul>
+            <li>Handelsregister-Nr.: CH-320.3.050.699-7</li>
+            <li>Rechtsform: Aktiengesellschaft</li>
+            <li>Mehrwertsteuernummer: CHE-109.343.814 MWST</li>
+        </ul>
+    </Section>
+</Layout>

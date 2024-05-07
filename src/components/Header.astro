@@ -1,0 +1,35 @@
+---
+import MobileNav from './react/MobileNav.tsx'
+export const NAVITEMS = [
+    { name: 'Leistungen', link: '/leistungen' },
+    { name: 'Arbeiten', link: '/projects' },
+    { name: 'Wir', link: '/spezialisten' },
+    { name: 'Blog', link: '/blog' },
+    { name: 'Kontakt', link: '/kontakt' },
+]
+---
+
+<header
+    class="flex justify-between p-4 items-center border-b-2 border-primary-900"
+>
+    <a href="/">
+        <img src="../../assets/eoss_logo.svg" alt="Logo" class="h-12" />
+    </a>
+    <nav>
+        <ul class="hidden md:flex items-center space-x-10">
+            {
+                NAVITEMS.map((item) => (
+                    <li>
+                        <a
+                            href={item.link}
+                            class="text-primary-900 hover:text-primary-700"
+                        >
+                            {item.name}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+        <MobileNav client:load />
+    </nav>
+</header>

@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Hero from '../../components/Hero.astro'
+import Section from '../../components/Section.astro'
+import BlogTeaser from '../../components/BlogTeaser.astro'
+import ProjectsTeaser from '../../components/ProjectsTeaser.astro'
+---
+
+<Layout title="eoss - Webdesign" description="Wir sorgen dafür, dass digitale Auftritte nicht nur auffallen, sondern auch begeistern und binden.">
+    <Hero title="Webdesign" type="small">
+        <h2>Digitale Schaufenster.</h2>
+        <p>
+            Webseiten sind die Schaufenster der digitalen Welt. Genau wie ein
+            physischer Laden zieht sie Kunden an – oder eben nicht. Wir sorgen
+            dafür, dass digitale Auftritte nicht nur auffallen, sondern auch
+            begeistern und binden.
+        </p>
+    </Hero>
+    <Section type="medium" align="center">
+        <p class="text-sm md:text-md">
+            Damit eine Webseite erfolgreich ist, muss sie einen Besucher in
+            mehrerer Hinsicht überzeugen. Das <a href="#design">Design</a> soll dem
+            Nutzer den gewünschten Eindruck vermitteln, eine <a href="#ux"
+                >intuitive Nutzerführung</a
+            > lässt Besucher relevante Informationen finden und <a
+                href="#technologie">moderne Technologie</a
+            >
+            macht die Seite sicher und skalierbar.
+        </p>
+    </Section>
+    <Section type="small" align="start">
+        <h3 id="design">Design</h3>
+        <p>
+            Das visuelle Erscheinungsbild einer Webseite ist der erste
+            Berührungspunkt und somit die Visitenkarte im digitalen Raum. Ein
+            durchdachtes Design kommuniziert nicht nur die Markenidentität,
+            sondern schafft auch eine emotionale Verbindung zum Besucher.
+        </p>
+        <h3 class="mt-16" id="ux">Intuitive Nutzerführung</h3>
+        <p>
+            Die Struktur einer Webseite ist entscheidend für eine positive
+            Nutzererfahrung. Eine intuitive Nutzerführung ermöglicht es
+            Besuchern, schnell und einfach zu finden, wonach sie suchen. Dies
+            wird durch eine logische Anordnung der Inhalte, klar gekennzeichnete
+            Navigationselemente und eine ausgeklügelte Informationsarchitektur
+            erreicht.
+        </p>
+        <h3 class="mt-16" id="technologie">Moderne Technologie</h3>
+        <p>
+            Die technische Basis einer Webseite ist ihr Fundament. Moderne
+            Technologien machen eine Webseite nicht nur schneller und sicherer,
+            sondern sorgen auch dafür, dass sie flexibel und zukunftsfähig
+            bleibt. Darüber hinaus ermöglicht die Verwendung von skalierbaren
+            und wartbaren Technologien, dass Ihre Webseite mit Ihrem Unternehmen
+            wachsen kann.
+        </p>
+    </Section>
+    <ProjectsTeaser tag="web" count={2} />
+    <BlogTeaser tag="web" count={2} />
+</Layout>

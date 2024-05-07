@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Hero from '../../components/Hero.astro'
+import Section from '../../components/Section.astro'
+import BlogTeaser from '../../components/BlogTeaser.astro'
+import ProjectsTeaser from '../../components/ProjectsTeaser.astro'
+---
+
+<Layout title="eoss - SEO" description="Erfolgreiches SEO basiert auf Wissen, Content und Langfristigkeit. Wir unterstützen Sie dabei.">
+    <Hero title="SEO" type="small">
+        <h2>Wir machen Sie auffindbar.</h2>
+        <p>
+            Um mit einem Webauftritt erfolgreich zu sein, muss dieser von den
+            Usern gefunden werden. Das passiert nicht einfach so, sondern
+            erfordert Analysen, ein gutes Konzept, Content und regelmässige
+            Pflege.
+        </p>
+    </Hero>
+    <Section type="medium" align="center">
+        <p class="text-sm md:text-md">
+            Erfolgreiches SEO basiert auf den drei Säulen <a href="#wissen"
+                >Wissen</a
+            >, <a href="#langfristigkeit">Langfristigkeit</a> und <a
+                href="#content">Content</a
+            >. Alle drei Ebenen sind nötig, um optimale Ergebnisse zu erzielen.
+            Unsere Leistungen sind darauf ausgelegt, diese drei Bereiche optimal
+            aufeinander abzustimmen.
+        </p>
+    </Section>
+    <Section type="small" align="start">
+        <h3 id="wissen">Wissen</h3>
+        <p>
+            Zu wissen, was für Massnahmen funktionieren, ist zwar teilweise eine
+            Frage von Erfahrung, doch nicht nur. Genauso wichtig sind Analysen
+            und Datenerhebungen, um nicht nur zu raten, sondern zu wissen. Ohne
+            diese Basis lässt sich ausserdem kein Fortschritt dokumentieren.
+        </p>
+        <h3 class="mt-16" id="langfristigkeit">Langfristigkeit</h3>
+        <p>
+            Eine einmalige Bearbeitung kann zwar bei gar für SEO optimierten
+            Seiten eine Verbesserung bringen. Wahre Erfolge können jedoch nur
+            gefeiert werden, wenn langfristig unterschiedliche Themen bearbeitet
+            werden. So lassen sich Platzierungen Schritt für Schritt verbessern.
+        </p>
+        <h3 class="mt-16" id="content">Content</h3>
+        <p>
+            Das A und O für SEO ist ein gut aufgebauter Content. Das beginnt bei
+            den Überschriften, führt zu den Texten, den Bildern bis hin zu den
+            für den menschlichen User gar nicht sichtbaren Alt-Tags und
+            Metadaten.
+        </p>
+    </Section>
+    <ProjectsTeaser tag="seo" count={2} />
+    <BlogTeaser tag="seo" count={2} />
+</Layout>

@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets'
+
+interface Props {
+    name: string
+    role: string
+    image: string
+    email: string
+}
+
+const { name, role, image, email } = Astro.props
+---
+
+<article class="max-h-[900px]">
+    <img src={image} alt={name} class="object-cover max-h-[700px] w-full" />
+    <div>
+        <h3>{name}</h3>
+        <p>{role}</p>
+        <a href={`mailto:${email}`}>{email}</a>
+    </div>
+</article>

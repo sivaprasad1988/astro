@@ -1,0 +1,36 @@
+---
+import Button from '../components/Button.astro'
+
+interface Props {
+    title: string
+    type: 'small' | 'big'
+    buttonText?: string
+    buttonLink?: string
+}
+
+const { title, type, buttonText, buttonLink } = Astro.props
+---
+
+<section
+    class:list={[
+        type === 'big' ? 'md:h-[calc(100vh-120px)] py-8' : 'py-16 md:py-32',
+        'border-b-2 border-primary-900 flex flex-col md:flex-row md:items-end gap-8 ',
+    ]}
+>
+    <div class="flex flex-col md:w-2/3 pl-4 gap-4">
+        <h1 class="text-md md:text-lg lg:text-xxl">{title}</h1>
+        <p class="max-w-full md:max-w-prose">
+            <slot />
+        </p>
+    </div>
+    <div class="flex justify-end w-full md:w-1/3 pr-2 md:pr-4">
+        {
+            type === 'big' && (
+                <Button
+                    text={buttonText || 'Kontakt'}
+                    link={buttonLink || '/kontakt'}
+                />
+            )
+        }
+    </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components'
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import Section from '../components/Section.astro'
+---
+
+<Layout title="eoss - Kontakt" description="Wir freuen uns auf Ihre Idee! Egal ob per Mail, Telefon oder samt einem Kaffee in unserem Büro in Uznach.">
+    <Hero title="Kontakt" type="small">
+        <p>
+            Ein Gespräch löst mehr als 1000 Google-Suchen. Sie haben eine
+            digitale Herausforderung - wir Lust auf Herausforderungen.
+            Besprechen wir Ihre nächste grosse Idee. ⭐
+        </p>
+    </Hero>
+    <Section type="small" align="center">
+        <div class="grid grid-rows-2 gap-4">
+            <div class="flex items-center gap-4">
+                <Icon class="text-sm md:text-lg" name="phone" /><a
+                    href="mailto:hello@eoss.ch"
+                    ><h2 class="text-sm md:text-lg">hello@eoss.ch</h2></a
+                >
+            </div>
+            <div class="flex items-center gap-4">
+                <Icon class="text-sm md:text-lg" name="mail" /><a
+                    href="tel:+41555052200"
+                    ><h2 class="text-sm md:text-lg">055 505 22 00</h2></a
+                >
+            </div>
+        </div>
+    </Section>
+</Layout>

@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import Button from '../components/Button.astro'
+import BlogCard from '../components/BlogCard.astro'
+import { getCollection } from 'astro:content'
+interface Props {
+    tag: string
+    count: number
+}
+const { tag, count = 2 } = Astro.props
+
+const blogEntries = await getCollection('blog'),
+    filteredEntries =
+        tag === 'alle'
+            ? blogEntries
+            : blogEntries.filter((entry: any) => entry.data.tags?.includes(tag))
+
+const blogs = filteredEntries.slice(0, count)
+---
+
+<section class="pb-32">
+    <h2 class="mb-8 px-4">Wir haben für Sie recherchiert.</h2>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 pb-8">
+        {
+            blogs.map((entry: any) => (
+                <BlogCard
+                    title={entry.data.title}
+                    tags={entry.data.tags}
+                    slug={entry.slug}
+                    date={entry.data.date}
+                />
+            ))
+        }
+    </section>
+    <div class="flex justify-end px-4">
+        <Button text="zum Blog" link="/blog" />
+    </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets'
+import arrow from '../assets/arrow.svg'
+interface Props {
+    text: string
+    link: string
+    classes?: string[]
+}
+const { text, link, classes } = Astro.props
+---
+
+<a
+    class:list={[
+        'pushable bg-primary-900 hover:bg-secondary-500 border-none rounded-lg cursor-pointer outline-offset-2 no-underline w-max mt-8',
+        classes,
+    ]}
+    href={link}
+>
+    <span
+        class="front flex flex-row-reverse gap-4 px-8 py-3 rounded-lg bg-white hover:bg-secondary-100 border-2 border-primary-900 hover:border-secondary-500 -translate-y-1.5 translate-x-1"
+    >
+        <Image src={arrow} alt="arrow" height={32} width={32} />
+        {text}
+    </span>
+</a>
+
+<style>
+    .pushable:active .front {
+        transform: translateY(-2px);
+        transform: translateX(0px);
+    }
+</style>

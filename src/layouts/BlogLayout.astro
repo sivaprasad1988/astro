@@ -1,0 +1,80 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '@fontsource-variable/space-grotesk'
+interface Props {
+    title: string
+    description?: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="en" class="bg-white">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <Header />
+        <slot />
+        <Footer />
+    </body>
+</html>
+<style is:global>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+        h1 {
+            @apply text-lg;
+            @apply leading-snug;
+        }
+        h2 {
+            @apply text-md;
+        }
+        h3 {
+            @apply text-lg;
+        }
+        h4 {
+            @apply text-md;
+        }
+        h5 {
+            @apply text-sm;
+        }
+        h6 {
+            @apply text-xs;
+        }
+    }
+
+    :root {
+        --accent-gradient: linear-gradient(
+            45deg,
+            rgb(var(--accent)),
+            rgb(var(--accent-light)) 30%,
+            white 60%
+        );
+    }
+    html {
+        font-family: 'Space Grotesk Variable', sans-serif;
+        font-size: 22px;
+    }
+    code {
+        font-family:
+            Menlo,
+            Monaco,
+            Lucida Console,
+            Liberation Mono,
+            DejaVu Sans Mono,
+            Bitstream Vera Sans Mono,
+            Courier New,
+            monospace;
+    }
+</style>

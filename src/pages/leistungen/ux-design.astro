@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Hero from '../../components/Hero.astro'
+import Section from '../../components/Section.astro'
+import BlogTeaser from '../../components/BlogTeaser.astro'
+import ProjectsTeaser from '../../components/ProjectsTeaser.astro'
+---
+
+<Layout title="eoss - UX-Design" description="Unser UX-Design-Ansatz zielt darauf ab, ein einzigartiges und fesselndes Erlebnis zu schaffen.">
+    <Hero title="UX-Design" type="small">
+        <h2>Gestaltung, die begeistert und bindet.</h2>
+        <p>
+            In der Welt des digitalen Designs ist die Benutzererfahrung (User
+            Experience, UX) das Zünglein an der Waage zwischen Engagement und
+            Abwanderung. Unser UX-Design-Ansatz zielt darauf ab, ein
+            einzigartiges und fesselndes Erlebnis zu schaffen.
+        </p>
+    </Hero>
+    <Section type="medium" align="center">
+        <p class="text-sm md:text-md">
+            Ein <a href="#nutzerzenriert">nutzerzentriertes</a> UX-Design ist essenziell,
+            um Nutzer nicht nur anzuziehen, sondern sie auch zu aktiven Teilnehmern
+            Ihrer digitalen Präsenz zu machen. Logisches <a href="#interaktion"
+                >Interaktionsdesign</a
+            > hilft Besuchern Informationen zugänglich zu machen und ein kreatives
+            und minimalistisches <a href="#interface">Interface Design</a> vermittelt
+            Vertrauen und präsentiert ein Unternehmen visuell.
+        </p>
+    </Section>
+    <Section type="small" align="start">
+        <h3 id="nutzerzenriert">Nutzerzentriertes Design</h3>
+        <p>
+            Wir beginnen mit einer umfassenden Nutzerbefragung, um die
+            Bedürfnisse, Wünsche und Verhaltensweisen der Zielgruppe zu
+            verstehen. Auf dieser Basis entwickeln wir Auftritte und Lösungen,
+            die Nutzer begeistern und intuitiv das bieten, was sie suchen.
+        </p>
+        <h3 class="mt-16" id="interface">Visuelles Design</h3>
+        <p>
+            Ästhetik ist mehr als nur ein schönes Äusseres. Es kommuniziert Ihre
+            Markenidentität und vermittelt Gefühle, die eine tiefe Verbindung
+            zwischen Nutzer und Produkt schaffen. Unsere Designs sind nicht nur
+            visuell ansprechend, sondern auch funktional, um die
+            Markenwahrnehmung zu stärken und die Benutzererfahrung zu
+            verbessern.
+        </p>
+        <h3 class="mt-16" id="interaktion">Interaktionsdesign</h3>
+        <p>
+            Durch die Gestaltung der Interaktion zwischen Nutzer und Produkt
+            verbessern wir die Usability und sorgen für ein reibungsloses
+            Nutzererlebnis. Wir legen Wert auf logische Navigation, klare
+            Hierarchien und ansprechende Mikrointeraktionen, um den Nutzen und
+            die Freude an der Nutzung einer Webseite oder eines digitalen
+            Produktes zu maximieren.
+        </p>
+    </Section>
+    <ProjectsTeaser tag="ux" count={2} />
+    <BlogTeaser tag="ux" count={2} />
+</Layout>

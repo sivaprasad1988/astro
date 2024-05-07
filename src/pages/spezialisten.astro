@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro'
+import TeamCard from '../components/TeamCard.astro'
+import { getCollection } from 'astro:content'
+import Hero from '../components/Hero.astro'
+const teamEntries = await getCollection('team')
+---
+
+<Layout
+    title="eoss - Team"
+    description="Wir sind Eoss. Unser Team von Spezialisten entwickelt moderne, individuelle und nachhaltige Lösungen."
+>
+    <Hero title="Kleines Team - grosse Ideen" type="small">
+        <p>
+            Wir sind ein eingespieltes Teams von Spezialisten aus den
+            verschiedensten Bereichen. Probleme erkennen und pragmatische und
+            ausgeklügelte Lösungen zu finden ist unsere Leidenschaft.
+        </p>
+    </Hero>
+    <section class="grid grid-cols-1 md:grid-cols-2 px-4 py-16">
+        <article>
+            <h2>Da sind wir.</h2>
+            <p>
+                Hallo - wir sind Eoss. Unsere Büros im Erdgeschoss eines
+                Minergie-Gebäudes sind in Uznach SG, mit Blick auf die Glarner
+                Alpen. In Steinwurf-Reichweite liegt das Städtchen Rapperswil.
+                Im Ring angeordnet hat jedes Teammitglied einen ruhigen
+                Arbeitsplatz, während wir uns in der Mitte treffen. Für
+                Projektbesprechungen, Kundenmeetings und auch fürs gemeinsame
+                Mittagessen. Das Sofa steht hauptsächlich für unseren Bürohund
+                da. In dieser schönen Umgebung produzieren wir moderne
+                Webseiten, sorgen dafür, dass User sich gut darauf zurechtfinden
+                und kümmern uns um gute Suchergebnisse bei Google und anderen
+                Suchmaschinen.
+            </p>
+        </article>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 py-32">
+        <h2 class="col-span-full">Unser Team</h2>
+        {
+            teamEntries.map((entry: any) => (
+                <TeamCard
+                    name={entry.data.name}
+                    role={entry.data.role}
+                    image={entry.data.image.src}
+                    email={entry.data.email}
+                />
+            ))
+        }
+    </section>
+    <section class="grid grid-cols-1 md:grid-cols-2 px-4 py-8 gap-8">
+        <article>
+            <h2>Nachhaltigkeit</h2>
+            <p>
+                Wir glauben daran, dass Nachhaltigkeit richtig und wichtig ist.
+                Darum bauen wir auf grüne Energie - auch bei den Servern, auf
+                denen die von uns produzierten Webseiten gehostet sind. Wir
+                kümmern uns um möglichst schnelle und energieeffiziente Seiten.
+                Je weniger der Server und auch das Gerät des Users zu tun hat,
+                desto besser. Je besser und schneller eine Seite gefunden wird,
+                desto weniger Suchanfragen sind nötig.
+            </p>
+        </article>
+        <article>
+            <h2>Teamgeist</h2>
+            <p>
+                Unsere Bürotüren sind füreinander offen. Gute Ideen werden
+                umgesetzt, egal, ob sie vom Chef oder unserer Auszubildenden
+                stammen. Wir ziehen alle am gleichen Strick und glauben fest
+                daran, dass wir so die besten Ergebnisse unserer Arbeit erzielen
+                können. Wir kümmern uns auch umeinander, damit niemand auf der
+                Strecke bleibt.
+            </p>
+        </article>
+    </section>
+</Layout>

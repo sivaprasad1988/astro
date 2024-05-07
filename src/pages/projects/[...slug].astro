@@ -1,0 +1,32 @@
+---
+import BlogLayout from '../../layouts/Layout.astro'
+import Section from '../../components/Section.astro'
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
+export async function getStaticPaths() {
+    const posts = await getCollection('projects')
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }))
+}
+const { post } = Astro.props
+const { Content } = await post.render()
+---
+
+<BlogLayout title={`Referenz ${post.data.title}`}>
+    <main>
+        <Section type="small" align="center">
+            <img src={post.data.image?.src} alt={post.data.title} />
+            <h1 class="mb-8">{post.data.title}</h1>
+            <Content />
+        </Section>
+    </main>
+</BlogLayout>
+
+<style>
+    main :global(p),
+    main :global(ul) {
+        margin-bottom: 2rem;
+    }
+</style>

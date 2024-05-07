@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import ProjectCard from '../../components/ProjectCard.astro'
+import { getCollection } from 'astro:content'
+import Hero from '../../components/Hero.astro'
+const projectsEntries = await getCollection('projects')
+---
+
+<Layout title="eoss - Referenzen">
+    <Hero title="Referenzprojekte" type="small" />
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-48">
+        {
+            projectsEntries.map((entry: any) => (
+                <ProjectCard
+                    title={entry.data.title}
+                    image={entry.data.image}
+                    tags={entry.data.tags}
+                    slug={entry.slug}
+                />
+            ))
+        }
+    </section>
+</Layout>

@@ -1,0 +1,58 @@
+---
+import Button from './Button.astro'
+
+interface Props {
+    title: string
+    date: Date
+    tags: string[]
+    slug: string
+}
+const { title, date, tags, slug } = Astro.props
+---
+
+<section
+    class="flex flex-col justify-between border border-primary-900 p-8 rounded-lg min-h-60"
+>
+    <div class="flex flex-col gap-2">
+        <h2 class="text-sm md:text-md">{title}</h2>
+        <p class="text-xs">
+            {
+                date.toLocaleDateString('de-CH', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                })
+            }
+        </p>
+        <ul class="flex flex-wrap max-w-fit gap-1 text-xs">
+            {
+                tags.map((tag: string) => {
+                    return (
+                        <li class="flex items-center bg-secondary-500 py-1 px-4 rounded-xl">
+                            {tag}
+                        </li>
+                    )
+                })
+            }
+        </ul>
+    </div>
+    <Button
+        classes={['self-end', 'md:hidden', 'block']}
+        link={`/blog/${slug}`}
+        text="lesen"
+    />
+    <Button
+        classes={['self-end', 'md:block', 'hidden']}
+        link={`/blog/${slug}`}
+        text="mehr lesen"
+    />
+</section>
+
+<style>
+    li:before {
+        content: '#';
+        margin-right: 0;
+        display: inline;
+        padding: 0;
+    }
+</style>

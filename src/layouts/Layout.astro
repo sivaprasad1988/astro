@@ -1,0 +1,110 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '@fontsource-variable/space-grotesk'
+
+interface Props {
+    title: string
+    description?: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="en" class="bg-white">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <link rel="stylesheet" href="/base.css" />
+        <title>{title}</title>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+        <!-- Friendly Analytics Image Tracker-->
+        <img
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://app.friendlyanalytics.ch/js/tracker.php?idsite=119&rec=1"
+            style="border:0"
+            alt=""
+        />
+        <!-- End Friendly Analytics -->
+    </body>
+</html>
+<style is:global>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+        @font-face {
+            font-family: 'GothamXNarrow-Bold';
+            src: url('/fonts/GothamXNarrow-Bold.otf');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+    }
+
+    @layer base {
+        h1 {
+            @apply text-lg;
+            font-family: 'GothamXNarrow-Bold', sans-serif;
+        }
+        h2 {
+            @apply text-md;
+            font-family: 'GothamXNarrow-Bold', sans-serif;
+        }
+        h3 {
+            @apply text-sm;
+            font-family: 'GothamXNarrow-Bold', sans-serif;
+        }
+        h4 {
+            @apply text-sm;
+            font-family: 'GothamXNarrow-Bold', sans-serif;
+        }
+        h5 {
+            @apply text-sm;
+        }
+        h6 {
+            @apply text-xs;
+        }
+    }
+
+    :root {
+        --color-primary: #071312;
+        --color-secondary: #fcba0e;
+        --color-tertiary: #fbdda4;
+    }
+
+    html {
+        font-family: 'Space Grotesk Variable', sans-serif;
+        font-size: 22px;
+        scroll-behavior: smooth;
+    }
+    code {
+        font-family: Menlo;
+    }
+
+    main li {
+        list-style: none;
+        margin-bottom: 1rem;
+    }
+
+    main li::before {
+        content: '👉';
+        padding-right: 0.5rem;
+    }
+
+    main a {
+        text-decoration: underline;
+    }
+</style>

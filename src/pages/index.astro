@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
+import Hero from '../components/Hero.astro'
+import Section from '../components/Section.astro'
+import CursorText from '../components/react/CursorText.tsx'
+import BlogTeaser from '../components/BlogTeaser.astro'
+import ProjectsTeaser from '../components/ProjectsTeaser.astro'
+---
+
+<Layout title="eoss - Web, E-Commerce, UX und SEO" description="Wir vereinen moderne Webseiten UX und SEO und begeistern die Nutzer.">
+    <main>
+        <Hero
+            title="Digitales für Mensch und Maschine"
+            ,
+            type="big"
+            buttonText="Kontakt"
+            buttonLink="/kontakt"
+        >
+            Wir entwerfen moderne Webseiten und Webshops, die Nutzer begeistern.
+            Der Einsatz von modernen Technologien und die konstante
+            Weiterentwicklung unserer Lösungen sind Teil unserer Kultur.
+        </Hero>
+        <Section type="medium" align="center">
+            <p class="text-sm md:text-md">
+                Wir schätzen uns glücklich, mit allen möglichen Kunden
+                zusammenarbeiten zu dürfen. Wir bauen <a
+                    href="/leistungen/ecommerce">Webshops</a
+                > und <a href="/leistungen/webdesign">Webseiten</a> mit Fokus auf
+                <a href="/leistungen/ux-design">UX-Design</a> und <a
+                    href="/leistungen/seo">SEO</a
+                > für kleine und grosse Unternehmen, Verbände und Organisationen.
+            </p>
+        </Section>
+        <BlogTeaser tag="alle" count={2} />
+        <ProjectsTeaser tag="alle" count={2} />
+    </main>
+</Layout>
+
+<style></style>

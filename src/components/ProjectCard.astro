@@ -1,0 +1,57 @@
+---
+import Button from './Button.astro'
+import Image from 'astro/components/Image.astro'
+
+interface Props {
+    title: string
+    tags: string[]
+    image: any
+    slug: string
+}
+
+const { title, image, tags, slug } = Astro.props
+---
+
+<article>
+    <div class="flex justify-center mb-8">
+        <Image
+            class="max-h-72 object-contain"
+            src={image}
+            alt={title}
+            inferSize={true}
+        />
+    </div>
+    <div>
+        <h2>{title}</h2>
+        <ul class="flex max-w-fit gap-1 text-xs">
+            {
+                tags.map((tag: string) => {
+                    return (
+                        <li class="flex items-center bg-secondary-500 py-1 px-4 rounded-xl">
+                            {tag}
+                        </li>
+                    )
+                })
+            }
+        </ul>
+        <Button
+            classes={['self-end', 'md:hidden', 'block']}
+            link={`/projects/${slug}`}
+            text="Projekt"
+        />
+        <Button
+            classes={['self-end', 'md:block', 'hidden']}
+            link={`/projects/${slug}`}
+            text="Projekt ansehen"
+        />
+    </div>
+</article>
+
+<style>
+    li:before {
+        content: '#';
+        margin-right: 0;
+        display: inline;
+        padding: 0;
+    }
+</style>

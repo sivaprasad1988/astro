@@ -1,0 +1,37 @@
+---
+interface Props {
+    bg?: string
+    type: 'small' | 'medium' | 'full' | 'normal'
+    align: 'start' | 'center' | 'end'
+    id?: string
+}
+
+const { type = 'medium', align = 'left', bg, id } = Astro.props
+---
+
+<section
+    class:list={[
+        'flex flex-col',
+        bg,
+        align === 'center'
+            ? 'items-center'
+            : align === 'end'
+              ? 'items-end'
+              : 'items-start',
+        type === 'full' ? '' : 'px-8',
+    ]}
+    id={id}
+>
+    <div
+        class:list={[
+            'py-16 md:py-48',
+            type === 'small'
+                ? 'w-full md:w-1/2'
+                : type === 'full' || type === 'normal'
+                  ? `w-full flex justify-${align}`
+                  : 'w-full md:w-3/4',
+        ]}
+    >
+        <slot />
+    </div>
+</section>

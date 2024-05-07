@@ -1,0 +1,78 @@
+---
+import Hero from '../../components/Hero.astro'
+import SingleLeistung from '../../components/SingleLeistung.astro'
+import Layout from '../../layouts/Layout.astro'
+import seo_image from '../../assets/seo_bild.svg'
+import ux_image from '../../assets/web_illustration_ux.svg'
+import web_image from '../../assets/web_bild.svg'
+import ecommerce_image from '../../assets/ecommerce_bild.svg'
+---
+
+<Layout title="eoss - Leistungen" description="Webdesign, UX und SEO sind unsere Passion. Wir layouten, entwickeln und erstellen Inhalte, ganz nach Ihren Bedürfnissen.">
+    <Hero title="Leistungen" type="small">
+        Wir bieten Ihnen ein breites Spektrum an Leistungen, die wir individuell
+        auf Ihre Bedürfnisse anpassen.
+    </Hero>
+    <section class="mt-32">
+        <SingleLeistung
+            title="Webdesign"
+            budget="CHF 15’000 - 25’000"
+            duration="2-5 Monate"
+            slug="/leistungen/webdesign"
+            image={web_image}
+        >
+            <p>
+                Wir glauben an minimalistisches Design, das nicht nur das Auge
+                erfreut, sondern auch eine intuitive Navigation und
+                Nutzerfreundlichkeit bietet. Von der ersten Konzept- und
+                Planungsphase bis hin zur Umsetzung legen wir Wert auf
+                Geschwindigkeit, Sicherheit und Skalierbarkeit jeder
+                Online-Präsenz.
+            </p>
+        </SingleLeistung>
+        <SingleLeistung
+            title="E-Commerce"
+            budget="CHF 25’000 -50’000"
+            duration="4 - 8 Monate"
+            slug="/leistungen/ecommerce"
+            image={ecommerce_image}
+            ><p>
+                Im digitalen Handelsraum ist der erste Eindruck entscheidend
+                über Conversion oder Absprung. Unser E-Commerce Ansatz
+                fokussiert auf ein aussergewöhnliches Nutzererlebnis,
+                professionellem SEO und modernen Technologien. Damit machen wir
+                jeden Online-Shop zur Verkaufsmaschine.
+            </p>
+        </SingleLeistung>
+        <SingleLeistung
+            title="SEO"
+            budget="CHF 1’500 -2’500 pro Monat"
+            duration="laufend"
+            slug="/leistungen/seo"
+            image={seo_image}
+        >
+            <p>
+                Das ist die traurige Realität, wenn Sie es nicht schaffen, auf
+                der ersten Seite der Google Suche zu erscheinen, existieren Sie
+                für über 9 von 10 Nutzer nicht. Um das zu schaffen, nützen wir
+                eine nachhaltige SEO Strategie, eine langfristige Content
+                Planung und ständige Optimierung und Überwachung der Ergebnisse.
+            </p>
+        </SingleLeistung>
+        <SingleLeistung
+            title="UX-Design"
+            budget="CHF 5’000 - 10’000"
+            duration="2 - 4 Wochen"
+            slug="/leistungen/ux-design"
+            image={ux_image}
+        >
+            <p>
+                Wir verwandeln komplexe Informationen in klare Pfade und sorgen
+                dafür, dass sich Ihre Nutzer niemals verloren fühlen. Mit
+                unserem UX Design findet jeder den Weg – direkt zu dem, was er
+                sucht und braucht, denn nur wenn Inhalte gefunden und
+                versdtanden werden, erzielen sie die nötige Wirkuing.
+            </p>
+        </SingleLeistung>
+    </section>
+</Layout>
