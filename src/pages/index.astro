@@ -9,13 +9,13 @@ import ProjectsTeaser from '../components/ProjectsTeaser.astro'
 import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
 
 console.log(import.meta.env)
-const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-banners`)
+const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-banners/1`)
 const responseData = await response.json()
 const description =
-    responseData.data[0]?.attributes?.bodyText[0]?.children[0]?.text
-const heading = responseData.data[0]?.attributes?.heading
-const contactUrl = responseData.data[0]?.attributes?.contact_url
-const contactText = responseData.data[0]?.attributes?.contact_text
+    responseData.data?.attributes?.bodyText[0]?.children[0]?.text
+const heading = responseData.data?.attributes?.heading
+const contactUrl = responseData.data?.attributes?.contact_url
+const contactText = responseData.data?.attributes?.contact_text
 
 
 const boyTextRresponse = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-body-text`)
