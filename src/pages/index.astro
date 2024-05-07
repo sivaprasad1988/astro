@@ -16,16 +16,11 @@ const description =
 const heading = responseData.data[0]?.attributes?.heading
 const contactUrl = responseData.data[0]?.attributes?.contact_url
 const contactText = responseData.data[0]?.attributes?.contact_text
-console.log(responseData.data[0]?.attributes)
+
 
 const boyTextRresponse = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-body-text`)
 const boyTextRresponseData = await boyTextRresponse.json()
-const content: BlocksContent = boyTextRresponseData.data?.attributes?.BodyText;
-
-console.log(boyTextRresponseData.data?.attributes?.BodyText)
-
- 
-
+const content: BlocksContent = boyTextRresponseData.data?.attributes?.BodyText; 
 ---
 
 <Layout title="eoss - Web, E-Commerce, UX und SEO" description="Wir vereinen moderne Webseiten UX und SEO und begeistern die Nutzer.">
