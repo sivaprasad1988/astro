@@ -5,6 +5,7 @@ import Button from '../components/Button.astro'
 import BlogCard from '../components/BlogCard.astro'
 import { getCollection } from 'astro:content'
 import ProjectCard from './ProjectCard.astro'
+import DynamicProjectCard from './DynamicProjectCard.astro'
 interface Props {
     tag: string
     count: number
@@ -18,8 +19,15 @@ const projectsEntries = await getCollection('projects'),
             : projectsEntries.filter((entry: any) =>
                   entry.data.tags?.includes(tag)
               )
+const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}project-lists?populate[images][fields]&populate[tags][fields]&populate[tags][slug]`)
+const responseData = await response.json();
+const projectData = responseData.data;
 
-const projects = filteredEntries.slice(0, count)
+// const projects = filteredEntries.slice(0, count)
+/**
+ * @todo Filtering of Projects still pending
+ */
+const projects = projectData.slice(0, count)
 ---
 
 <section class="pb-32">
@@ -27,11 +35,11 @@ const projects = filteredEntries.slice(0, count)
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 pb-8">
         {
             projects.map((entry: any) => (
-                <ProjectCard
-                    title={entry.data.title}
-                    tags={entry.data.tags}
-                    slug={entry.slug}
-                    image={entry.data.image}
+                <DynamicProjectCard
+                title={entry.attributes.title}
+                image={entry.attributes.images.data?.attributes?.formats.medium.url}
+                tags={entry.attributes.tags.data}
+                slug={entry.attributes.slug}
                 />
             ))
         }
