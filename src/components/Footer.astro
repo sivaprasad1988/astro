@@ -1,5 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components'
+const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}company-address`)
+const responseData = await response.json()
+const { data: { attributes } } = responseData; 
+
 ---
 
 <footer class="bg-primary-900 text-primary-100">
@@ -8,11 +12,10 @@ import { Icon } from 'astro-icon/components'
     >
         <div class="mb-4 md:mb-0">
             <div class="pb-4">
-                <p>eoss INFORMATIK AG - Burgerrietstrasse 13 - 8730 Uznach</p>
+                <p>{attributes.companyname} - {attributes.address} - {attributes.plz}</p>
                 <p class="text-xs">
-                    <a href="tel:+41555052200">055 505 22 00</a> - <a
-                        href="mailto:hello@eoss.ch">hello@eoss.ch</a
-                    >
+                    <a href={`tel:${attributes.phone}`}>{attributes.phone}</a> - 
+                    <a href={`mailto:${attributes.email}`}>{attributes.email}</a>
                 </p>
             </div>
             <ul class="flex">

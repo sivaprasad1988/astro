@@ -8,7 +8,6 @@ import BlogTeaser from '../components/BlogTeaser.astro'
 import ProjectsTeaser from '../components/ProjectsTeaser.astro'
 import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
 
-console.log(import.meta.env)
 const response = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-banners/1`)
 const responseData = await response.json()
 const description =
