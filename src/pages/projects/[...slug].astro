@@ -20,23 +20,17 @@ return articles.map((article) => ({
 
 }
 type Props = Article;
-
 const post = Astro.props; 
 const content: BlocksContent = post.attributes?.content; 
 const postImage = `http://localhost:1337${post.attributes.images?.data?.attributes?.formats.medium.url}`
-
-
-
 ---
-
 <BlogLayout title={`Referenz ${post.attributes.title}`}>
     <main>
         <Section type="small" align="center">
             <img src={postImage} alt={post.attributes.title} />
-            <h1 class="mb-8">{post.attributes.title}</h1> 
+            <h1 class="mb-8">{post.attributes.title}</h1>
             <BlocksRenderer content={content} />
         </Section>
-        
     </main>
 </BlogLayout>
 
