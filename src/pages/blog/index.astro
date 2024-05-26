@@ -4,20 +4,24 @@ import Hero from '../../components/Hero.astro'
 import BlogCard from '../../components/BlogCard.astro'
 import { getCollection } from 'astro:content'
 const blogEntries = await getCollection('blog')
+import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
+
 const sortedBlogEntries = blogEntries.sort((a: any, b: any) => {
     return b.data.date - a.data.date
 })
+
+const headingResponse = await fetch(`${import.meta.env.PUBLIC_STRAPI_API}home-banners/6`)
+const { data : {attributes } } = await headingResponse.json()
+console.log(attributes);
+const heading = attributes.heading
+
+const content: BlocksContent = attributes.bodyText; 
+
 ---
 
 <Layout title="eoss - Blog" description="Für Eoss hört das Lernen niemals auf. In unserem Blog lassen wir Sie an unserem Wissen teilhaben.">
-    <Hero title="Blog" type="small">
-        <h2>Wir haben für Sie recherchiert.</h2>
-        <p>
-            Unsere Arbeit erfordert ein stetes und ständiges Weiterentwickeln.
-            Wir recherchieren neue Technologien, setzen uns mit den Gesetzen der
-            digitalen Welt auseinander und erarbeiten neue Strategien und
-            Möglichkeiten. Daran lassen wir Sie gerne teilhaben.
-        </p>
+    <Hero title={heading} type="small">
+        <BlocksRenderer content={content} />
     </Hero>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-32">
         {
